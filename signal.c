@@ -17,8 +17,14 @@ void hand(int signum) {
 	// signal() n'envoie pas de signal ! kill() le fait.
 	// SIGINT correspond à CTRL+C
 	// Si je ne redéfinis pas à SIGINT, je suis bon pour retrouver
-	// le numéro du process et me taper un SIG_KILL des familles
+	// le numéro du process et me taper un SIGKILL des familles
 	// sans quoi ce process tournera indéfiniment.
+	// PROCÉDURE :
+	// dans un autre terminal (vu que celui-ci est bloqué) :
+	// - ps -l | grep "nomprogramme"
+	// - kill -9 pid
+	// le tiret 9 envoie un SIGKILL
+	// Le handler du SIGKILL ne peut être changé donc je suis certain de l'arrêter
 	signal(SIGINT, SIG_DFL);
 }
 
