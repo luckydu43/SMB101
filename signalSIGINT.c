@@ -26,6 +26,8 @@ void hand(int signum) {
 	// le tiret 9 envoie un SIGKILL
 	// Le handler du SIGKILL ne peut être changé donc je suis certain de l'arrêter
 	signal(SIGINT, SIG_DFL);
+	// Au lieu de redéfinir le signal SIGINT, on peut tout aussi bien arrêter le programme
+	// exit(0);
 }
 
 int main (void) {
