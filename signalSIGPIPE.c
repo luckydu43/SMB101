@@ -9,7 +9,7 @@ void handlerSigpipe(int signum) {
 	printf("UN SIGPIPE A ETE LEVE !!!!!!\n");
 	// exit(0);
 }
-void main() {
+int main() {
 
 	// On redéfinit le handler par défaut du signal SIGPIPE.
 	signal(SIGPIPE, handlerSigpipe);
