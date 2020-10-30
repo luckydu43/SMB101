@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <stdlib.h>
 
 int main(){
 	// Le père fait ça
@@ -15,7 +18,11 @@ int main(){
 		p3=fork();
 	}
 	// Le programme se termine avec donc 6 processus : père, p1, p2, p1.p2, p2.p3 et p1.p2.p3
-	printf("je suis un process crée\n");
-return 0;
+	printf("je suis un process crée : | ");
+	printf("p1: %d-%d-%d | ", p1, getpid(), getppid());
+	printf("p2: %d-%d-%d | ", p2, getpid(), getppid());
+	printf("p3: %d-%d-%d\n", p3, getpid(), getppid());
+	system("ps -l | grep ex1");
+	return 0;
 }
 
