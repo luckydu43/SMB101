@@ -41,6 +41,12 @@ int main() {
 	} else {
 		// p ne vaut pas 0 si c'est le processus père, cette condition ne concerne donc
 		// pas le fils.
+		
+		// Essentiel ! Il faut une pause. Autrement, le programme père finit avant
+		// que le programme fils ne soit prêt à recevoir le signal SIGUSR1
+		printf("Attente d'une seconde...\n");
+		sleep(1);
+
 		printf("----père----On ferme la première valeur du tube\n");
 		close (tableau[0]);
 		printf("----père----On écrit la valeur %d dans la deuxième valeur du tube\n", s);
