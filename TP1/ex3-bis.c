@@ -15,6 +15,7 @@ int  main() {
         write(d,"je suis eleve du Cnam", 21);
         close(d);
     } else {
+	// Le wait(NULL) permet d'attendre la fin du fils pour que le père continue
 	wait(NULL);
         d=open("file.txt",  O_RDONLY);
         printf("Je suis le processus père(lecteur):%d\n",getpid());
